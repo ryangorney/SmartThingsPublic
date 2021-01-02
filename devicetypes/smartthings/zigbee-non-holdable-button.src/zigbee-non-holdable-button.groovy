@@ -1,5 +1,5 @@
 /*
- *  Copyright 2016 SmartThings
+ *  Copyright 2016 SmartThings, contributions by RBoy Apps
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may not
  *  use this file except in compliance with the License. You may obtain a copy
@@ -25,7 +25,7 @@ metadata {
         capability "Health Check"
         capability "Sensor"
 
-        fingerprint profileId: "0104", inClusters: "0000, 0001, 0003, 0500", outClusters: "0019", manufacturer: "HEIMAN", model: "SOS-EM", deviceJoinName: "HEIMAN Emergency Button"
+        fingerprint profileId: "0104", inClusters: "0000, 0001, 0003, 0500", outClusters: "0019", manufacturer: "HEIMAN", model: "SOS-EM", deviceJoinName: "HEIMAN Button" //HEIMAN Emergency Button
     }
 
     tiles(scale: 2) {
@@ -124,7 +124,7 @@ private Map getBatteryResult(rawValue) {
     if (!(rawValue == 0 || rawValue == 255)) {
         result.name = 'battery'
         result.translatable = true
-        result.descriptionText = "${ device.displayName } battery was ${ value }%"
+        result.descriptionText = "{{ device.displayName }} battery was {{ value }}%"
 
         def minVolts = 2.1
         def maxVolts = 3.0
